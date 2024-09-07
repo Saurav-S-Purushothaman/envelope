@@ -59,3 +59,33 @@
   [html-body]
   (doto (MimeBodyPart.)
     (.setText html-body "utf-8" "html")))
+
+
+(defn base64->bytes
+  "Decodes a Base64-encoded string into a byte array"
+  [s]
+  (let [decoder (java.util.Base64/getDecoder)]
+    (.decode decoder s)))
+
+
+(defn image-data-handler
+  "Returns a A javax.activation.DataHandler object for a given
+  Base64-encoded image string and specifies the MIME type as
+  'image/png'"
+  [image]
+  (DataHandler. (base64->bytes image) "image/png"))
+
+
+(defn image-part
+  "Creates a MimeBodyPart object containing an image attachment
+  Args:
+  image - A Base64-encoded string representing an image
+  uid - A string to be used as the Content-ID header for the image part
+  Returns:
+  A javax.mail.internet.MimeBodyPart object that contains the image as
+  an inline attachment"
+  [image uid]
+  (doto (MimeBodyPart.)
+    (.setDataHandler (image-data-handler image))
+    (.setDisposition MimeBodyPart/INLINE)
+    (.addHeader  "Content-ID" uid)))
