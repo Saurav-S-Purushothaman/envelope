@@ -47,3 +47,15 @@
                        (proxy [Authenticator] []
                          (getPasswordAuthentication []
                            (PasswordAuthentication. username password)))))
+
+
+(defn html-part
+  "Creates a MimeBodyPart object containing an HTML message body
+  Args:
+  html-body - A string containing the HTML content of the email body
+  Returns:
+  A javax.mail.internet.MimeBodyPart object that contains the HTML
+  content set with UTF-8 encoding"
+  [html-body]
+  (doto (MimeBodyPart.)
+    (.setText html-body "utf-8" "html")))
