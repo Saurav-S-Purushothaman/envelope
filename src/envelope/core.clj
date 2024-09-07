@@ -1,2 +1,25 @@
 (ns envelope.core
+  (:import
+   [java.util
+    ArrayList
+    Date
+    Properties
+    Base64]
+   [jakarta.mail
+    Message
+    Session
+    Authenticator
+    PasswordAuthentication
+    Transport
+    Message$RecipientType]
+   [jakarta.mail.internet
+    MimeMessage
+    MimeBodyPart
+    InternetAddress
+    MimeMultipart]
+   [java.io
+    FileOutputStream
+    File]
+   [jakarta.activation
+    DataHandler])
   (:gen-class))
