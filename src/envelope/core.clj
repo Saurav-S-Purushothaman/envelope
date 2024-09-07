@@ -134,6 +134,23 @@
   (.setContent message multi-part))
 
 
+(defn add-bcc
+  [message bcc]
+  (.setRecipients message Message$RecipientType/BCC
+                  (InternetAddress/parse bcc)))
+
+
+(defn add-cc
+  [message cc]
+  (.setRecipients message Message$RecipientType/CC
+                  (InternetAddress/parse cc)))
+
+
+(defn add-header
+  [message header-title header]
+  (.addHeader message header-title header))
+
+
 (defn send-email!
   "Sends an email message using the provided MimeMessage object
   Args:
