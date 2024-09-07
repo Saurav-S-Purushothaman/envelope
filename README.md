@@ -1,6 +1,9 @@
 # envelope
 
-FIXME: description
+envelope is a streamlined Clojure library that serves as a convenient
+wrapper around the Jakarta Mail (formerly JavaMail) API. It simplifies
+the process of sending emails over SMTP by providing a more idiomatic
+Clojure interface.
 
 ## Installation
 
