@@ -119,6 +119,21 @@
        (.setSubject subject)))))
 
 
+(defn multi-part
+  []
+  (MimeMultipart. "Related"))
+
+
+(defn add-body
+  [multi-part mime-body-part]
+  (.addBodyPart multi-part mime-body-part))
+
+
+(defn set-content
+  [multi-part message]
+  (.setContent message multi-part))
+
+
 (defn send-email!
   "Sends an email message using the provided MimeMessage object
   Args:
