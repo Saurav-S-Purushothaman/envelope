@@ -7,29 +7,22 @@ Clojure interface.
 
 ## Installation
 
-Download from http://example.com/FIXME.
+In progress
 
 ## Usage
 
-FIXME: explanation
+In progress
 
     $ java -jar envelope-0.1.0-standalone.jar [args]
 
 ## Options
 
-FIXME: listing of options this app accepts.
+In progress
 
 ## Examples
 
-...
+In progress
 
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
 
 ## License
 
