@@ -117,3 +117,16 @@
        (.setRecipients Message$RecipientType/TO
                        (InternetAddress/parse to))
        (.setSubject subject)))))
+
+
+(defn send-email!
+  "Sends an email message using the provided MimeMessage object
+  Args:
+  message - A javax.mail.internet.MimeMessage object representing the email to be sent.
+  _connection-string - A placeholder for a connection string or API
+    key used for authentication (currently not implemented).
+  Returns:
+  nil. This function performs side effects by sending an email and
+  logging the process."
+  [message]
+  (Transport/send message))
