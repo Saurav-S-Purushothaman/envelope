@@ -89,3 +89,31 @@
     (.setDataHandler (image-data-handler image))
     (.setDisposition MimeBodyPart/INLINE)
     (.addHeader  "Content-ID" uid)))
+
+
+(defn address
+  "Extracts the email addresses of the recipients from a MimeMessage"
+  [message]
+  (map #(.getAddress %)
+       (.getRecipients message Message$RecipientType/TO)))
+
+
+(defn mime-message
+  "Creates a MimeMessage object for an email
+  Returns:
+  A javax.mail.internet.MimeMessage object with the specified sender,
+  recipients, and subject"
+  ([from display-name to subject session]
+   (let [message (MimeMessage. session)]
+     (doto message
+       (.setFrom (InternetAddress. from display-name))
+       (.setRecipients Message$RecipientType/TO
+                       (InternetAddress/parse to))
+       (.setSubject subject))))
+  ([from to subject session]
+   (let [message (MimeMessage. session)]
+     (doto message
+       (.setFrom (InternetAddress. from))
+       (.setRecipients Message$RecipientType/TO
+                       (InternetAddress/parse to))
+       (.setSubject subject)))))
