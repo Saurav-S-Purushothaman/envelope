@@ -41,6 +41,7 @@
       (.put "mail.smtp.user" username)
       (.put "mail.smtp.port" port)
       (.put "mail.smtp.socketFactory.port" port)
+      (.put "mail.smtp.starttls.enable" "true");
       (.put "mail.smtp.auth" "true"))
     (when ssl
       (doto properties
@@ -219,6 +220,7 @@
   nil. This function performs side effects by sending an email."
   [message]
   (Transport/send message))
+
 
 (comment
   (def username "saurav.kudajadri@gmail.com")
