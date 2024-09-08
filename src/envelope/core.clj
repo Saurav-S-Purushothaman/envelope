@@ -1,4 +1,6 @@
 (ns envelope.core
+  ^{:author "Saurav S Purushothaman",
+    :doc "A core library for sending messages via SMTP"}
   (:import
    [java.util
     ArrayList
