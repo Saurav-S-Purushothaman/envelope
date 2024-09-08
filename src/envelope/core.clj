@@ -68,12 +68,17 @@
     (.decode decoder s)))
 
 
-(defn image-data-handler
+(defn bs64-image->DataHandler
   "Returns a A javax.activation.DataHandler object for a given
   Base64-encoded image string and specifies the MIME type as
   'image/png'"
   [image]
   (DataHandler. (base64->bytes image) "image/png"))
+
+
+(defn bs64-image->DataHandler
+  [image]
+  (DataHandler . image "image/png"))
 
 
 (defn image-part
@@ -172,5 +177,6 @@
 
 (comment
   (def username "saurav.kudajadri@gmail.com")
-  (def password "sauravchess")
+  (def password "nil")
+
   )
