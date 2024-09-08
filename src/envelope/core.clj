@@ -1,29 +1,28 @@
 (ns envelope.core
   ^{:author "Saurav S Purushothaman",
     :doc "A core library for sending messages via SMTP"}
-  (:import
-   [java.util
-    ArrayList
-    Date
-    Properties
-    Base64]
-   [jakarta.mail
-    Message
-    Session
-    Authenticator
-    PasswordAuthentication
-    Transport
-    Message$RecipientType]
-   [jakarta.mail.internet
-    MimeMessage
-    MimeBodyPart
-    InternetAddress
-    MimeMultipart]
-   [java.io
-    FileOutputStream
-    File]
-   [jakarta.activation
-    DataHandler])
+  (:import [java.util
+            ArrayList
+            Date
+            Properties
+            Base64]
+           [jakarta.mail
+            Message
+            Session
+            Authenticator
+            PasswordAuthentication
+            Transport
+            Message$RecipientType]
+           [jakarta.mail.internet
+            MimeMessage
+            MimeBodyPart
+            InternetAddress
+            MimeMultipart]
+           [java.io
+            FileOutputStream
+            File]
+           [jakarta.activation
+            DataHandler])
   (:gen-class))
 
 (defn properties
