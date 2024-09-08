@@ -146,9 +146,15 @@
                   (InternetAddress/parse cc)))
 
 
+(defn add-to
+  [message to]
+  (.setRecipients message Message$RecipientType/CC
+                  (InternetAddress/parse to)))
+
+
 (defn add-header
-  [message header-title header]
-  (.addHeader message header-title header))
+  [message key val]
+  (.addHeader message key val))
 
 
 (defn send-email!
@@ -162,3 +168,9 @@
   logging the process."
   [message]
   (Transport/send message))
+
+
+(comment
+  (def username "saurav.kudajadri@gmail.com")
+  (def password "sauravchess")
+  )
