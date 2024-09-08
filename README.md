@@ -5,25 +5,6 @@ wrapper around the Jakarta Mail (formerly JavaMail) API. It simplifies
 the process of sending emails over SMTP by providing a more idiomatic
 Clojure interface.
 
-## Installation
-
-In progress
-
-## Usage
-
-In progress
-
-    $ java -jar envelope-0.1.0-standalone.jar [args]
-
-## Options
-
-In progress
-
-## Examples
-
-In progress
-
-
 ## License
 
 Copyright © 2024 FIXME
