@@ -34,7 +34,7 @@
   ssl - A boolean flag indicating if SSL should be enabled.
   Returns:
   A java.util.Properties object with the SMTP settings."
-  [username host port ssl]
+  [username host port]
   (let [properties (Properties.)]
     (doto properties
       (.put "mail.smtp.host" host)
