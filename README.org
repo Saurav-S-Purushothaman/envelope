@@ -1,0 +1,53 @@
+* envelope
+
+envelope is a streamlined Clojure library that serves as a convenient
+wrapper around the Jakarta Mail (formerly JavaMail) API. It simplifies
+the process of sending emails over SMTP by providing a more idiomatic
+Clojure interface.
+
+** Usage
+
+*** Creating multipart emails
+
+#+BEGIN_SRC clojure
+  ;; All the functions used in this example which are not from
+  ;; clojure.core namespace are from envelope.core namespace
+
+  (require '[envelope.core :refer all])
+
+  (let [username "sauravapprehensiveice@outlook.com"
+                     password "sauravs95@"
+      props (properties username "smtp-mail.outlook.com" "587")
+      session (create-session! props username password)
+      ;; Multimedia part
+      html1 (html-part "<h1>Hello World</h1>")
+      html2 (html-part "<h2>Hello World</h2>")
+      multi (multi-part)
+      message (mime-message username
+                            "saurav.kudajadri@gmail.com"
+                            "Subject"
+                            "Saurav"
+                            session)]
+  ;; Attach body to multipart
+  (attach-body multi html1)
+  (attach-body multi html2)
+  ;; Set content of the message
+  (set-content message multi)
+  ;; Send the email
+  (send-email! message))
+#+END_SRC
+
+** License
+
+Copyright © 2024 FIXME
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License 2.0 which is available at
+http://www.eclipse.org/legal/epl-2.0.
+
+This Source Code may also be made available under the following Secondary
+Licenses when the conditions for such availability set forth in the Eclipse
+Public License, v. 2.0 are satisfied: GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or (at your
+option) any later version, with the GNU Classpath Exception which is available
+at https://www.gnu.org/software/classpath/license.html.
