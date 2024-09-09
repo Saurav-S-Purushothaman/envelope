@@ -160,7 +160,7 @@
   message - A javax.mail.internet.MimeMessage object to set the content for.
   Returns:
   nil."
-  [multi-part message]
+  [message multi-part]
   (.setContent message multi-part))
 
 (defn attach-bcc
