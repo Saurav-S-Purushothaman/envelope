@@ -43,11 +43,6 @@
       (.put "mail.smtp.socketFactory.port" port)
       (.put "mail.smtp.starttls.enable" "true");
       (.put "mail.smtp.auth" "true"))
-    (when ssl
-      (doto properties
-        (.put "mail.smtp.starttls.enable" "true")
-        (.put "mail.smtp.socketFactory.class" "javax.net.ssl.SSLSocketFactory")
-        (.put "mail.smtp.socketFactory.fallback" "false")))
     properties))
 
 (defn create-session!
