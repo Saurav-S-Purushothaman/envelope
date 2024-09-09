@@ -1,3 +1,10 @@
+#+TITLE:     Envelope README
+#+AUTHOR:    Saurav S Purushothaman
+#+EMAIL:     mail@andreas-politz.de
+#+Maintainer: Saurav S Purushothaman
+#+Maintainer_Email: saurav.kudajadri@gmail.com
+
+
 * envelope
 
 envelope is a streamlined Clojure library that serves as a convenient
@@ -16,25 +23,25 @@ Clojure interface.
   (require '[envelope.core :refer all])
 
   (let [username "sauravapprehensiveice@outlook.com"
-                     password "sauravs95@"
-      props (properties username "smtp-mail.outlook.com" "587")
-      session (create-session! props username password)
-      ;; Multimedia part
-      html1 (html-part "<h1>Hello World</h1>")
-      html2 (html-part "<h2>Hello World</h2>")
-      multi (multi-part)
-      message (mime-message username
-                            "saurav.kudajadri@gmail.com"
-                            "Subject"
-                            "Saurav"
-                            session)]
-  ;; Attach body to multipart
-  (attach-body multi html1)
-  (attach-body multi html2)
-  ;; Set content of the message
-  (set-content message multi)
-  ;; Send the email
-  (send-email! message))
+        password "sauravs95@"
+        props (properties username "smtp-mail.outlook.com" "587")
+        session (create-session! props username password)
+        ;; Multimedia part
+        html1 (html-part "<h1>Hello World</h1>")
+        html2 (html-part "<h2>Hello World</h2>")
+        multi (multi-part)
+        message (mime-message username
+                              "saurav.kudajadri@gmail.com"
+                              "Subject"
+                              "Saurav"
+                              session)]
+    ;; Attach body to multipart
+    (attach-body multi html1)
+    (attach-body multi html2)
+    ;; Set content of the message
+    (set-content message multi)
+    ;; Send the email
+    (send-email! message))
 #+END_SRC
 
 ** License
