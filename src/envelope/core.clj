@@ -143,7 +143,7 @@
   []
   (MimeMultipart. "Related"))
 
-(defn add-body
+(defn attach-body
   "Adds a MimeBodyPart to a MimeMultipart object.
   Args:
   multi-part - A javax.mail.internet.MimeMultipart object.
@@ -163,7 +163,7 @@
   [multi-part message]
   (.setContent message multi-part))
 
-(defn add-bcc
+(defn attach-bcc
   "Adds BCC recipients to a MimeMessage.
   Args:
   message - A javax.mail.internet.MimeMessage object.
@@ -174,7 +174,7 @@
   (.setRecipients message Message$RecipientType/BCC
                   (InternetAddress/parse bcc)))
 
-(defn add-cc
+(defn attach-cc
   "Adds CC recipients to a MimeMessage.
   Args:
   message - A javax.mail.internet.MimeMessage object.
@@ -185,7 +185,7 @@
   (.setRecipients message Message$RecipientType/CC
                   (InternetAddress/parse cc)))
 
-(defn add-to
+(defn attach-to
   "Adds TO recipients to a MimeMessage.
   Args:
   message - A javax.mail.internet.MimeMessage object.
@@ -196,7 +196,7 @@
   (.setRecipients message Message$RecipientType/TO
                   (InternetAddress/parse to)))
 
-(defn add-header
+(defn attach-header
   "Adds a custom header to a MimeMessage.
   Args:
   message - A javax.mail.internet.MimeMessage object.
