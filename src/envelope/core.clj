@@ -6,7 +6,7 @@
             Date
             Properties
             Base64]
-           [jakarta.mail
+          [jakarta.mail
             Message
             Session
             Authenticator
@@ -52,7 +52,8 @@
   username - The username for authentication.
   password - The password for authentication.
   Returns:
-  A jakarta.mail.Session object configured with the given properties and credentials."
+  A jakarta.mail.Session object configured with the given properties and
+  credentials."
   [properties username password]
   (Session/getInstance properties
                        (proxy [Authenticator] []
@@ -64,7 +65,8 @@
   Args:
   html-body - A string containing the HTML content of the email body.
   Returns:
-  A javax.mail.internet.MimeBodyPart object that contains the HTML content set with UTF-8 encoding."
+  A javax.mail.internet.MimeBodyPart object that contains the HTML
+  content set with UTF-8 encoding."
   [html-body]
   (doto (MimeBodyPart.)
     (.setText html-body "utf-8" "html")))
@@ -84,7 +86,8 @@
   Args:
   image - A Base64-encoded string representing an image.
   Returns:
-  A javax.activation.DataHandler object for the given Base64-encoded image string, specifying the MIME type as 'image/png'."
+  A javax.activation.DataHandler object for the given Base64-encoded
+  image string, specifying the MIME type as 'image/png'."
   [image]
   (DataHandler. (base64->bytes image) "image/png"))
 
@@ -94,7 +97,8 @@
   image - A Base64-encoded string representing an image.
   uid - A string to be used as the Content-ID header for the image part.
   Returns:
-  A javax.mail.internet.MimeBodyPart object that contains the image as an inline attachment."
+  A javax.mail.internet.MimeBodyPart object that contains the image as
+  an inline attachment."
   [image uid]
   (doto (MimeBodyPart.)
     (.setDataHandler (bs64-image->DataHandler image))
@@ -106,7 +110,8 @@
   Args:
   message - A javax.mail.internet.MimeMessage object.
   Returns:
-  A sequence of strings representing the email addresses of the recipients."
+  A sequence of strings representing the email addresses of the
+  recipients."
   [message]
   (map #(.getAddress %)
        (.getRecipients message Message$RecipientType/TO)))
@@ -120,7 +125,8 @@
   subject - The subject of the email.
   session - The mail session object.
   Returns:
-  A javax.mail.internet.MimeMessage object with the specified sender, recipients, and subject."
+  A javax.mail.internet.MimeMessage object with the specified sender,
+  recipients, and subject."
   ([from display-name to subject session]
    (let [message (MimeMessage. session)]
      (doto message
@@ -156,8 +162,10 @@
 (defn set-content
   "Sets the content of a MimeMessage to a given MimeMultipart object.
   Args:
-  multi-part - A javax.mail.internet.MimeMultipart object containing the message content.
-  message - A javax.mail.internet.MimeMessage object to set the content for.
+  multi-part - A javax.mail.internet.MimeMultipart object containing the
+  message content.
+  message - A javax.mail.internet.MimeMessage object to set the content
+  for.
   Returns:
   nil."
   [message multi-part]
@@ -210,7 +218,8 @@
 (defn send-email!
   "Sends an email message using the provided MimeMessage object.
   Args:
-  message - A javax.mail.internet.MimeMessage object representing the email to be sent.
+  message - A javax.mail.internet.MimeMessage object representing the
+  email to be sent.
   Returns:
   nil. This function performs side effects by sending an email."
   [message]
