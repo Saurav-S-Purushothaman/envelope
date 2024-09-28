@@ -23,7 +23,7 @@ Clojure interface.
   (require '[envelope.core :refer all])
 
   (let [username "sauravapprehensiveice@outlook.com"
-        password "sauravs95@"
+        password "password"
         props (properties username "smtp-mail.outlook.com" "587")
         session (create-session! props username password)
         ;; Multimedia part
