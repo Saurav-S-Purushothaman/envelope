@@ -26,6 +26,12 @@
 
 
 (defn parse-email [raw-email]
+  "Takes a raw email as input and extracts the following details from
+  it.
+  - :message-id
+  - :in-reply-to
+  - :references
+  - :original-recipeint"
   (let [session (Session/getDefaultInstance (java.util.Properties.))
         input-stream (ByteArrayInputStream. (.getBytes raw-email))
         message (MimeMessage. session input-stream)]
