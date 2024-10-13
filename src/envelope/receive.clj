@@ -43,8 +43,7 @@
 
 ;; Example usage:
 (comment
-(def raw-email-data (slurp "file-location.txt"))
-(def parsed-email (parse-email raw-email-data))
-(:message-id parsed-email)
-(:references parsed-email)
-)
+  (def raw-email-data (slurp "file-location.txt"))
+  (def parsed-email (parse-email raw-email-data))
+  (:message-id parsed-email)
+  (:references parsed-email))
