@@ -7,9 +7,9 @@
 
 * envelope
 
-envelope is a Clojure library that serves as a convenient wrapper around
-the Jakarta Mail (formerly JavaMail) API. It creates a simplified and
-idiomatic way to send emails over SMTP in Clojure.
+envelope is a Clojure library that serves as a wrapper around the
+Jakarta Mail (formerly JavaMail) API. It creates idiomatic way to send
+emails over SMTP in Clojure.
 
 ** Usage
 
@@ -44,6 +44,9 @@ A simple example
     ;; Send the email
     (send-email! message))
 #+END_SRC
+
+See, the number of lines of is code considerably less when compared to
+java :-)
 
 ** License
 
