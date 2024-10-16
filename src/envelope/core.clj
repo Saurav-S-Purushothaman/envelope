@@ -174,6 +174,18 @@
 (defn set-text
   "Sets the text of a MimeMessage
   Args:
+  text - string
+  message content.
+  message - A javax.mail.internet.MimeMessage object to set the content
+  for.
+  Returns:
+  nil."
+  [message text]
+  (.setText message text))
+
+(defn set-subject
+  "Sets the subject of a MimeMessage
+  Args:
   multi-part - A javax.mail.internet.MimeMultipart object containing the
   message content.
   message - A javax.mail.internet.MimeMessage object to set the content
