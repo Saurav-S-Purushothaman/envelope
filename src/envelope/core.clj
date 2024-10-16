@@ -216,6 +216,17 @@
   [message languages]
   (.setContentLanguage message languages))
 
+(defn set-description
+  "Sets the subject of a MimeMessage
+  Args:
+  description - string
+  message - A javax.mail.internet.MimeMessage object to set the content
+  for.
+  Returns:
+  nil."
+  [message description]
+  (.setDescription message description))
+
 (defn attach-bcc
   "Adds BCC recipients to a MimeMessage.
   Args:
