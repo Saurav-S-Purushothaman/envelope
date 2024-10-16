@@ -238,7 +238,6 @@
   (.setRecipients message Message$RecipientType/BCC
                   (InternetAddress/parse bcc)))
 
-
 (defn attach-cc
   "Adds CC recipients to a MimeMessage.
   Args:
@@ -282,8 +281,6 @@
   [message]
   (Transport/send message))
 
-
 (comment
   (def username "saurav.kudajadri@gmail.com")
-  (def password "nil")
-)
+  (def password "nil"))
