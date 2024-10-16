@@ -194,6 +194,17 @@
   [message text]
   (.setText message text))
 
+(defn set-content-language
+  "Sets the subject of a MimeMessage
+  Args:
+  languages - a string vector of lanugages
+  message - A javax.mail.internet.MimeMessage object to set the content
+  for.
+  Returns:
+  nil."
+  [message languages]
+  (.setContentLanguage message languages))
+
 (defn attach-bcc
   "Adds BCC recipients to a MimeMessage.
   Args:
