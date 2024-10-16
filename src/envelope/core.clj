@@ -186,8 +186,7 @@
 (defn set-subject
   "Sets the subject of a MimeMessage
   Args:
-  multi-part - A javax.mail.internet.MimeMultipart object containing the
-  message content.
+  subject - text (string).
   message - A javax.mail.internet.MimeMessage object to set the content
   for.
   Returns:
