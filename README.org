@@ -4,8 +4,7 @@
 #+Maintainer: Saurav S Purushothaman
 #+Maintainer_Email: saurav.kudajadri@gmail.com
 
-#+TOC: headline 2
-#+OPTIONS: toc:t
+#+TOC: headline
 
 * envelope
 
