@@ -45,7 +45,7 @@ A simple example
     (send-email! message))
 #+END_SRC
 
-See, the number of lines of is code considerably less when compared to
+See, the number of lines of code is considerably less when compared to
 java :-)
 
 ** License
